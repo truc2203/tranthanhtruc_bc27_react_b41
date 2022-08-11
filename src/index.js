@@ -4,6 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// import bootstrap
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import 'font-awesome/css/font-awesome.min.css'
+// import store
+import store from "./store";
+// import component Provider 
+import { Provider } from "react-redux";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
