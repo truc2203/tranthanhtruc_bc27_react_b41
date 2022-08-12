@@ -5,3 +5,4 @@ const store = configureStore({
         seat : seatReducer,
     }
 })
+export default store

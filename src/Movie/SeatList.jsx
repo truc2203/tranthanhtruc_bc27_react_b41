@@ -1,18 +1,23 @@
 import React from 'react'
-import data from './data.json'
+import { useSelector } from 'react-redux'
 const SeatList = () => {
+    const {seats} = useSelector((state) => state.seat)
+    if(!seats)
+    {
+        return
+    }
   return (
     <>
-    <div className='bg-secondary mx-3 text-center m-4 text-light'>
+    <div className='bg-secondary mx-3 text-center mb-4 text-light'>
         <h5>Màn Hình</h5>
     </div>
     <div>
-        {data.map(list => {
+        {seats.map(seat => {
             return (
-                <ul className='row-list' key={list.row}>
-                    <li >{list.row}
+                <ul className='row-list' key={seat.row}>
+                    <li >{seat.row}
                   </li>
-                  {list.seats.map(seats => {
+                  {seat.seats.map(seats => {
                         return (
                             <button className='seats' key={seats.name}>{seats.name}</button>
                         )

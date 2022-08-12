@@ -5,9 +5,9 @@ import '../css/style.css'
 const Movie = () => {
   return (
     <div className="bg-img">
-      <div className="text-center my-4">
-        <h1>Cyber Movie</h1>
-        <div className="py-4">
+      <div className=" my-4">
+        <h1 className="text-center" >Cyber Movie</h1>
+        <div className="mx-5 py-4">
           <div className="my-2">
             <div
               style={{ display: "inline-block", width: "20px", height: "20px" }}
