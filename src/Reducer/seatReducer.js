@@ -13,8 +13,8 @@ const initialState = {
         { name: "A8", price: 75000, booked: false },
         { name: "A9", price: 75000, booked: false },
         { name: "A10", price: 75000, booked: false },
-        { name: "A11", price: 75000, booked: true },
-        { name: "A12", price: 75000, booked: true }
+        { name: "A11", price: 75000, booked: false },
+        { name: "A12", price: 75000, booked: false }
       ]
     },
     {
@@ -170,12 +170,15 @@ const initialState = {
         { name: "J12", price: 75000, booked: false }
       ]
     }
-  ]
+  ],
+  seatDetails : [],
 }
 
 const seatReducer = (state = initialState,action) => {
     switch (action.type) {
-
+        case 'isBooking' : 
+          const newSeat = [...state.seatDetails,{...action.booking, booked:!action.booking.booked}]
+          return {...state,seatDetails : newSeat}
         default:
             return state;
     }
