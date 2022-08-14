@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import seatReducer from './Reducer/seatReducer'
+import seatReducer from "./Reducer/seatReducer";
 const store = configureStore({
-    reducer:{
-        seat : seatReducer,
-    }
-})
-export default store
+  reducer: {
+    seat: seatReducer,
+  },
+  devTools: true,
+});
+export default store;

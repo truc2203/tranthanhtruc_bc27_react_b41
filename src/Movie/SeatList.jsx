@@ -1,12 +1,16 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
 const SeatList = () => {
-  const { seats } = useSelector((state) => state.seat);
+  const { seats } = useSelector((state) =>  state.seat);
+  // const [active,setActive] = useState(false)
   const dispatch = useDispatch();
   if (!seats) {
     return;
   }
   const handleBooking = (booking) => {
+    // setActive(!active)
+
     dispatch({ type: "isBooking", booking });
   };
   return (
@@ -22,7 +26,7 @@ const SeatList = () => {
               {seat.seats.map((seats) => {
                 return (
                   <button
-                    style={{backgroundColor : seat.booked ? '#8fee01' : ''}}
+                    style={{backgroundColor : seats.booked ? '#8fee01' : ''}}
                     onClick={() => handleBooking(seats)}
                     className="seats"
                     key={seats.name}

@@ -172,6 +172,7 @@ const initialState = {
     }
   ],
   seatDetails : [],
+  
 }
 
 const seatReducer = (state = initialState,action) => {
@@ -182,14 +183,14 @@ const seatReducer = (state = initialState,action) => {
           )
           if(check === -1)
           {
-            const newSeat = [...state.seatDetails,{...action.booking, booked:!action.booking.booked}]
-            console.log(newSeat);
+            const newSeat = [...state.seatDetails,{...action.booking}]
           return {...state,seatDetails : newSeat}
           }
           const newSeat = state.seatDetails.filter(seat => seat.name !== action.booking.name)
           return {...state,seatDetails:newSeat}
         case 'isRemove' : 
           const removeSeat = state.seatDetails.filter(seat => seat.name !== action.seat.name)
+          
           return {...state,seatDetails:removeSeat}
         default:
             return state;

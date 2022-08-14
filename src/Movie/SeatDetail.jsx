@@ -13,7 +13,7 @@ const SeatDetail = () => {
   }
   // Tính tổng tiền vé
   const total = seatDetails.reduce((total,value) => {return total += value.price},0)
-
+  
   return (
     <>
       <div className="text-center">
