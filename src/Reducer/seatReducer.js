@@ -177,8 +177,20 @@ const initialState = {
 const seatReducer = (state = initialState,action) => {
     switch (action.type) {
         case 'isBooking' : 
-          const newSeat = [...state.seatDetails,{...action.booking, booked:!action.booking.booked}]
+          const check = state.seatDetails.findIndex(
+            (seat) => seat.name === action.booking.name  
+          )
+          if(check === -1)
+          {
+            const newSeat = [...state.seatDetails,{...action.booking, booked:!action.booking.booked}]
+            console.log(newSeat);
           return {...state,seatDetails : newSeat}
+          }
+          const newSeat = state.seatDetails.filter(seat => seat.name !== action.booking.name)
+          return {...state,seatDetails:newSeat}
+        case 'isRemove' : 
+          const removeSeat = state.seatDetails.filter(seat => seat.name !== action.seat.name)
+          return {...state,seatDetails:removeSeat}
         default:
             return state;
     }

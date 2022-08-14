@@ -36,3 +36,22 @@
     color: #e9a30d;
     transition: all 0.3s;
 }
+
+.btn-style{
+    color: #000000;
+    font-size: 14px;
+    border: none;
+    background: none;
+    font-weight: 600;
+            box-shadow: 0 0 0 48px #8fee01 inset;
+    border-radius: 12px;
+    padding: 8px 12px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.btn-style:hover{
+    color: #ffffff;
+          box-shadow: 0 0 0 2px #09dbb4 inset;
+  transition: all 0.3s;
+}

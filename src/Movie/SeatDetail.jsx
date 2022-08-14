@@ -1,13 +1,16 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 const SeatDetail = () => {
+  const dispatch = useDispatch((state => state.seat))
   const {seatDetails} = useSelector((state) => state.seat)
   if(!seatDetails)
   {
   console.log(seatDetails)
     return null
   }
-
+  const handleDelete = (seat) => {
+    dispatch({type:'isRemove',seat})
+  }
   // Tính tổng tiền vé
   const total = seatDetails.reduce((total,value) => {return total += value.price},0)
 
@@ -32,8 +35,8 @@ const SeatDetail = () => {
                 <td>{seat.price}</td>
                 <td>
                   <button
-                    className="btn btn-danger"
-                    // onClick={() => this.handleDelete(product.id)}
+                    className="btn-style"
+                    onClick={() => handleDelete(seat)}
                   >
                     Hủy
                   </button>
