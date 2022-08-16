@@ -1,5 +1,5 @@
 const initialState = {
-    seats:[
+  seats: [
     {
       row: "A",
       seats: [
@@ -14,8 +14,8 @@ const initialState = {
         { name: "A9", price: 75000, booked: false },
         { name: "A10", price: 75000, booked: false },
         { name: "A11", price: 75000, booked: false },
-        { name: "A12", price: 75000, booked: false }
-      ]
+        { name: "A12", price: 75000, booked: false },
+      ],
     },
     {
       row: "B",
@@ -31,8 +31,8 @@ const initialState = {
         { name: "B9", price: 75000, booked: false },
         { name: "B10", price: 75000, booked: false },
         { name: "B11", price: 75000, booked: false },
-        { name: "B12", price: 75000, booked: false }
-      ]
+        { name: "B12", price: 75000, booked: false },
+      ],
     },
     {
       row: "C",
@@ -48,8 +48,8 @@ const initialState = {
         { name: "C9", price: 75000, booked: false },
         { name: "C10", price: 75000, booked: false },
         { name: "C11", price: 75000, booked: false },
-        { name: "C12", price: 75000, booked: false }
-      ]
+        { name: "C12", price: 75000, booked: false },
+      ],
     },
     {
       row: "D",
@@ -65,8 +65,8 @@ const initialState = {
         { name: "D9", price: 75000, booked: false },
         { name: "D10", price: 75000, booked: false },
         { name: "D11", price: 75000, booked: false },
-        { name: "D12", price: 75000, booked: false }
-      ]
+        { name: "D12", price: 75000, booked: false },
+      ],
     },
     {
       row: "E",
@@ -82,8 +82,8 @@ const initialState = {
         { name: "E9", price: 75000, booked: false },
         { name: "E10", price: 75000, booked: false },
         { name: "E11", price: 75000, booked: false },
-        { name: "E12", price: 75000, booked: false }
-      ]
+        { name: "E12", price: 75000, booked: false },
+      ],
     },
     {
       row: "F",
@@ -99,8 +99,8 @@ const initialState = {
         { name: "F9", price: 75000, booked: false },
         { name: "F10", price: 75000, booked: false },
         { name: "F11", price: 75000, booked: false },
-        { name: "F12", price: 75000, booked: false }
-      ]
+        { name: "F12", price: 75000, booked: false },
+      ],
     },
     {
       row: "G",
@@ -116,8 +116,8 @@ const initialState = {
         { name: "G9", price: 75000, booked: false },
         { name: "G10", price: 75000, booked: false },
         { name: "G11", price: 75000, booked: false },
-        { name: "G12", price: 75000, booked: false }
-      ]
+        { name: "G12", price: 75000, booked: false },
+      ],
     },
     {
       row: "H",
@@ -133,8 +133,8 @@ const initialState = {
         { name: "H9", price: 75000, booked: false },
         { name: "H10", price: 75000, booked: false },
         { name: "H11", price: 75000, booked: false },
-        { name: "H12", price: 75000, booked: false }
-      ]
+        { name: "H12", price: 75000, booked: false },
+      ],
     },
     {
       row: "I",
@@ -150,8 +150,8 @@ const initialState = {
         { name: "I9", price: 75000, booked: false },
         { name: "I10", price: 75000, booked: false },
         { name: "I11", price: 75000, booked: false },
-        { name: "I12", price: 75000, booked: false }
-      ]
+        { name: "I12", price: 75000, booked: false },
+      ],
     },
     {
       row: "J",
@@ -167,34 +167,41 @@ const initialState = {
         { name: "J9", price: 75000, booked: false },
         { name: "J10", price: 75000, booked: false },
         { name: "J11", price: 75000, booked: false },
-        { name: "J12", price: 75000, booked: false }
-      ]
-    }
+        { name: "J12", price: 75000, booked: false },
+      ],
+    },
   ],
-  seatDetails : [],
-  
-}
+  seatDetails: [],
+  isSelect: null,
+};
 
-const seatReducer = (state = initialState,action) => {
-    switch (action.type) {
-        case 'isBooking' : 
-          const check = state.seatDetails.findIndex(
-            (seat) => seat.name === action.booking.name  
-          )
-          if(check === -1)
-          {
-            const newSeat = [...state.seatDetails,{...action.booking}]
-          return {...state,seatDetails : newSeat}
-          }
-          const newSeat = state.seatDetails.filter(seat => seat.name !== action.booking.name)
-          return {...state,seatDetails:newSeat}
-        case 'isRemove' : 
-          const removeSeat = state.seatDetails.filter(seat => seat.name !== action.seat.name)
-          
-          return {...state,seatDetails:removeSeat}
-        default:
-            return state;
-    }
-}
+const seatReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "isBooking":
+      const check = state.seatDetails.findIndex(
+        (seat) => seat.name === action.booking.name
+      );
+      if (check === -1) {
+        const newSeat = [...state.seatDetails, { ...action.booking }];
+        return { ...state, seatDetails: newSeat };
+      }
+      const newSeat = state.seatDetails.filter(
+        (seat) => seat.name !== action.booking.name
+      );
+      return { ...state, seatDetails: newSeat };
+    case "isRemove":
+      const removeSeat = state.seatDetails.filter(
+        (seat) => seat.name !== action.seat.name
+      );
+      return { ...state, seatDetails: removeSeat };
+    case "cancelSeat":
+      return { ...state, isSelect: false };
+    case "resetSelect":
+      return { ...state, isSelect: null };
 
-export default seatReducer
+    default:
+      return state;
+  }
+};
+
+export default seatReducer;

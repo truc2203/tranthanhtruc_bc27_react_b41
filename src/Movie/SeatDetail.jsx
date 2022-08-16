@@ -5,11 +5,11 @@ const SeatDetail = () => {
   const {seatDetails} = useSelector((state) => state.seat)
   if(!seatDetails)
   {
-  console.log(seatDetails)
     return null
   }
   const handleDelete = (seat) => {
     dispatch({type:'isRemove',seat})
+    dispatch({type : 'cancelSeat'})
   }
   // Tính tổng tiền vé
   const total = seatDetails.reduce((total,value) => {return total += value.price},0)

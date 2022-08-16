@@ -17,8 +17,8 @@ const Movie = () => {
           </div>
           <div className="my-2">
             <div
-              style={{ display: "inline-block", width: "20px", height: "20px" }}
-              className="bg-success rounded-1"
+              style={{ display: "inline-block", width: "20px", height: "20px", backgroundColor:'#8fee01' }}
+              className="rounded-1"
             ></div>{" "}
             Ghế đang chọn
           </div>
