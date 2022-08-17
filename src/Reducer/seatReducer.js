@@ -193,9 +193,7 @@ const seatReducer = (state = initialState, action) => {
       const removeSeat = state.seatDetails.filter(
         (seat) => seat.name !== action.seat.name
       );
-      return { ...state, seatDetails: removeSeat };
-    case "cancelSeat":
-      return { ...state, isSelect: false };
+      return { ...state, seatDetails: removeSeat, isSelect:false };
     case "resetSelect":
       return { ...state, isSelect: null };
 

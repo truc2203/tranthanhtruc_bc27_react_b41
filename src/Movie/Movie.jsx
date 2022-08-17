@@ -31,11 +31,11 @@ const Movie = () => {
           </div>
         </div>
       </div>
-      <div className="d-flex justify-content-center">
-        <div className="col-7 px-5">
+      <div className="d-flex justify-content-center flex-wrap">
+        <div className="col-12 col-lg-7 px-5">
           <SeatList />
         </div>
-        <div className="col-5 px-5">
+        <div className="col-12 col-lg-5 px-5">
           <SeatDetail />
         </div>
       </div>

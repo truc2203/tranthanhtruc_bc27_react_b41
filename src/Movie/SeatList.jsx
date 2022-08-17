@@ -4,7 +4,7 @@ import SeatItem from "./SeatItem";
 
 
 const SeatList = () => {
-  const { seats } = useSelector((state) =>  state.seat);
+  const { seats} = useSelector((state) =>  state.seat);
   if (!seats) {
     return;
   }
