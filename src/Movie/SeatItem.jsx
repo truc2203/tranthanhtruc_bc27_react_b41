@@ -3,7 +3,7 @@ import { useDispatch,useSelector } from "react-redux";
 import { useState,useEffect } from "react";
 const SeatItem = ({ seatItem }) => {
   const [select,setSelect] = useState(false)
-  const {isSelect,seatDetails} = useSelector((state) => state.seat)
+  const {seatDetails} = useSelector((state) => state.seat)
   const dispatch = useDispatch();
   const handleBooking = (booking) => {
     dispatch({ type: "isBooking", booking });
@@ -16,8 +16,6 @@ const SeatItem = ({ seatItem }) => {
     } else {
       setSelect(true);
     }
-    // setSelect(isSelect)
-    // dispatch({type:'resetSelect'})
   }, [seatDetails]);
 
   return (

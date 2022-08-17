@@ -172,7 +172,6 @@ const initialState = {
     },
   ],
   seatDetails: [],
-  isSelect: null,
 };
 
 const seatReducer = (state = initialState, action) => {
@@ -193,10 +192,8 @@ const seatReducer = (state = initialState, action) => {
       const removeSeat = state.seatDetails.filter(
         (seat) => seat.name !== action.seat.name
       );
-      return { ...state, seatDetails: removeSeat, isSelect:false };
-    case "resetSelect":
-      return { ...state, isSelect: null };
-
+      return { ...state, seatDetails: removeSeat};
+  
     default:
       return state;
   }
