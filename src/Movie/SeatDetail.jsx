@@ -8,11 +8,11 @@ const SeatDetail = () => {
     return null
   }
   const handleDelete = (seat) => {
-    dispatch({type:'isRemove',seat})
-  }
+    dispatch({ type: "isBooking", booking: seat });
+  };
   // Tính tổng tiền vé
   const total = seatDetails.reduce((total,value) => {return total += value.price},0)
-  
+
   return (
     <>
       <div className="text-center">
